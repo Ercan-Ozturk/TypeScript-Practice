@@ -75,3 +75,6 @@ class Person {
   }
 }
 const ercan = new Person(1, "Ercan Ozturk");
+
+console.log(ercan.register());
+console.log(ercan);
