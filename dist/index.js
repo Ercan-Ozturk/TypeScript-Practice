@@ -51,3 +51,16 @@ class Person {
 const ercan = new Person(1, "Ercan Ozturk");
 console.log(ercan.register());
 console.log(ercan);
+class Employee extends Person {
+    constructor(id, name, position) {
+        super(id, name);
+        this.position = position;
+    }
+}
+const emp = new Employee(4, "Jack", "Intern");
+console.log(emp.register());
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(["a", "b", "c"]);

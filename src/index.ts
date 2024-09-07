@@ -62,7 +62,12 @@ interface MathFunc {
 const add: MathFunc = (x: number, y: number): number => x + y;
 const sub: MathFunc = (x: number, y: number): number => x - y;
 
-class Person {
+interface PersonInterface {
+  id: number;
+  name: string;
+  register(): string;
+}
+class Person implements PersonInterface {
   id: number;
   name: string;
 
@@ -78,3 +83,21 @@ const ercan = new Person(1, "Ercan Ozturk");
 
 console.log(ercan.register());
 console.log(ercan);
+
+class Employee extends Person {
+  position: string;
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+}
+
+const emp = new Employee(4, "Jack", "Intern");
+console.log(emp.register());
+
+function getArray<T>(items: T[]): T[] {
+  return new Array().concat(items);
+}
+
+let numArray = getArray<number>([1, 2, 3, 4]);
+let strArray = getArray<string>(["a", "b", "c"]);
